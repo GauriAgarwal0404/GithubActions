@@ -1,0 +1,176 @@
+key: value
+"key with quotes": "value wit quotes"
+323: 2242
+special_chars: "special: characters"
+test: "a value 'in' quotes"
+single quotes: 'a value ''in'' single quotes'
+unicode quotes: 'a value ''in'' single quotes \u263A \n'
+double quotes: "a value ''in'' single quotes \u263A \u263B \n "
+
+##Arrays
+#Arrays are also referred to as sequences in yaml
+
+array (sequences):
+  - hello
+  - world
+
+#we can have arrays in json style also
+
+json array: [hello, world]
+
+numbers: 100
+boolean: true
+also null: null
+null: ~
+
+#We have objects which are maps in yaml
+
+objects (maps):
+  key: value
+  another: value
+  nested obj:
+    nested key: values
+
+"json_objects (maps)": {
+    "key": "value",
+    "another": "value",
+    "nested obj": {
+      "nested key": "values"
+    }
+  }
+
+sequence: 
+  - Item 1
+  - Item 2
+  - 0.5
+  - key: value                  #add an object
+    another key: value
+  - - nested array item        #array inside an array
+    - nested array item 2
+  - - - Nested sequence indicators
+      - can be collapsed  
+
+
+#text in multiple lines
+literal block: | 
+  first line
+  second line
+
+#without \n we can use angular bracket
+
+folded block: >
+  first line
+  second line
+
+
+#text in multiple lines with replacing trailing \n in the end also , add - also
+literal block replacing \n: |- 
+  first line
+  second line
+
+#without \n we can use angular bracket with -
+
+folded block with -: >-
+  first line
+  second line
+
+#if we want to preserve trailing new lines also then we can use use +
+literal block adding \n: |+ 
+  first line
+  second 
+  
+? - Manchester United
+  - Real Madrid
+: [ 2001-01-01, 2002-02-02 ]
+
+
+#######################
+# EXTRA YAML FEATURES #
+#######################
+
+# YAML also has a handy feature called 'anchors', which let you easily duplicate
+# content across your document.
+# Anchors identified by & character which define the value.
+# Aliases identified by * character which acts as "see above" command.
+# Both of these keys will have the same value:
+anchored_content: &anchor_name This string will appear as the value of two keys
+other_anchor: *anchor_name
+
+# Anchors can be used to duplicate/inherit properties
+
+base: &base
+  name: Everyone has same name
+
+# The expression << is called 'Merge Key Language-Independent Type'. It is used to
+# indicate that all the keys of one or more specified maps should be inserted
+# into the current map.
+# NOTE: If key already exists alias will not be merged
+
+foo:
+  age: 10
+  <<: *base # doesn't merge the anchor
+  name: john
+bar:
+  <<: *base #base anchor will be merged
+  age: 20
+
+# YAML also has tags, which you can use to explicitly declare types.
+# Syntax: !![typeName] [value]
+explicit_boolean: !!bool true
+explicit_integer: !!int 42
+explicit_float: !!float -42.27
+explicit_string: !!str 0.5
+explicit_datetime: !!timestamp 2022-11-17 12:34:56.78 +9
+explicit_null: !!null null
+
+# Some parsers implement language specific tags, like this one for Python's
+# complex number type.
+# python_complex_number: !!python/complex 1+2j
+
+# # We can also use yaml complex keys with language specific tags
+# ? !!python/tuple [ 5, 7 ]
+# : Fifty Seven
+# Would be {(5, 7): 'Fifty Seven'} in Python
+
+####################
+# EXTRA YAML TYPES #
+####################
+
+# Strings and numbers aren't the only scalars that YAML can understand.
+# ISO-formatted date and datetime literals are also parsed.
+datetime_canonical: 2001-12-15T02:59:43.1Z
+datetime_space_separated_with_time_zone: 2001-12-14 21:59:43.10 -5
+date_implicit: 2002-12-14
+date_explicit: !!timestamp 2002-12-14
+
+# The !!binary tag indicates that a string is actually a base64-encoded
+# representation of a binary blob.
+gif_file: !!binary |
+  R0lGODlhDAAMAIQAAP//9/X17unp5WZmZgAAAOfn515eXvPz7Y6OjuDg4J+fn5
+  OTk6enp56enmlpaWNjY6Ojo4SEhP/++f/++f/++f/++f/++f/++f/++f/++f/+
+  +f/++f/++f/++f/++f/++SH+Dk1hZGUgd2l0aCBHSU1QACwAAAAADAAMAAAFLC
+  AgjoEwnuNAFOhpEMTRiggcz4BNJHrv/zCFcLiwMWYNG84BwwEeECcgggoBADs=
+
+# YAML also has a set type, which looks like this:
+set:
+  ? item1
+  ? item2
+  ? item3
+or: { item1, item2, item3 }
+
+# Sets are just maps with null values; the above is equivalent to:
+set2:
+  item1: null
+  item2: null
+  item3: null
+
+...  # document end
+
+
+
+
+
+
+
+
+
