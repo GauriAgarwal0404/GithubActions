@@ -9,7 +9,7 @@ jobs:
                 pwd
                 ls -a
                 echo $GITHUB_SHA                           #id of the commit that triggered the workflow to run
-                echo $GITHUB_RESPOSITORY
+                echo $GITHUB_REPOSITORY
                 echo $GITHUB_WORKSPACE                    #default workspace for ur machine and this is the default directory that is going to be used when we run any command
             # - name: Change Working Dir
             #   working-directory: /home/runeer
