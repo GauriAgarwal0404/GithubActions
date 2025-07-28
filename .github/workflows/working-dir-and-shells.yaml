@@ -1,0 +1,36 @@
+name: Working Dirs and Shells
+on: [push]
+jobs:
+    display-wd-info:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Display Working Directory & list Files
+              run: |
+                pwd
+                ls -a
+                echo $GITHUB_SHA                           #id of the commit that triggered the workflow to run
+                echo $GITHUB_RESPOSITORY
+                echo $GITHUB_WORKSPACE                    #default workspace for ur machine and this is the default directory that is going to be used when we run any command
+            - name: Change Working Dir
+              working-directory: /home/runeer
+              run: pwd
+    display-wd-info-windows:
+        runs-on: windows-latest
+        defaults:
+            run:
+                shell: pwsh
+        steps:
+            - name: Display Working Directory & List Files
+              run: |
+                Get-Location
+                dir
+                echo $env:GITHUB_SHA
+                echo $env:GITHUB_REPOSITORY
+                echo $env:GITHUB_WORKSPACE
+            # - name: Python Shell
+            #   shell: python
+            #   run: |
+            #     import platform
+            #     print(platform.processor())
+
+        
