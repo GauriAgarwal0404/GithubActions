@@ -40,3 +40,6 @@ jobs:
                 echo "Option: ${{ inputs.option }}"
                 echo "Boolean: ${{ inputs.boolean }}"
                 echo "Environment: ${{ inputs.environment }}"
+
+
+#gh workflow run manually-triggered.yaml -f string="from gh cli" -f environment=production --ref main             
