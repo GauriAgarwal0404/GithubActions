@@ -2,8 +2,26 @@ name: Repository Events
 # on: [push, pull_request, issues]
 on:
     push:
-    pull_request:
+        branches:
+            - main
+            #Matches zero or more characters, but does not match the / character. For example, Octo* matches Octocat.
+            - "feature/*"    # matches feature/featA, feature/featB, does not match feature/featA/featB
+            - "feature/**"    # matches feature/featA, feature/featB, feature/featA/featB
+            - "!feature/featA"     #does not match feature/featA  
+        # branches-ignore:         can't use branches and branches-ignore at same time
+        #   - feature/featA   
+        tags:          #we have tags-ignore also
+            - v1.*    # match v1.1, v1.1.2
+            - "!v1.1.1"
+        paths:             #Path patterns must match the whole path, and start from the repository's root.
+            - '**.js'
+            - "!app.js"
+    pull_request:                                                        #pull request w/f will only run when there is a change in javascript file and targeting main branch
         types: [opened, assigned, reopened, synchronize]
+        branches:
+            - main
+        paths:
+            - "**.js"
     issues:
         types: [opened]
 
