@@ -7,7 +7,9 @@ jobs:
     echo-a-sring:
         runs-on: ubuntu-latest
         steps:
-            - run: echo "Repository Dispatch"
+            - run: |
+                echo "Repository Dispatch"
+                echo ${{ github.event.client_payload.env }}
 
 
 # this workflow is going to run beacuse we are sending the "event_type": "build" as body in postman
