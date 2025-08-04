@@ -1,9 +1,13 @@
 name: External Events
 on:
     repository_dispatch:
+        types: [build]    #types: [test]
 
 jobs:
     echo-a-sring:
         runs-on: ubuntu-latest
         steps:
             - run: echo "Repository Dispatch"
+
+
+# this workflow is going to run beacuse we are sending the "event_type": "build" as body in postman
