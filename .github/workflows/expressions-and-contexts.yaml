@@ -10,7 +10,6 @@ jobs:
         run: |
           echo ${{ 1 }}
           echo ${{ 'This is a string' }}
-          echo ${{ 'It''s open source!' }}
           echo ${{ null }}
           echo ${{ true }}
           echo ${{ 1 > 2 }}
