@@ -35,7 +35,7 @@ jobs:
           echo ${{ toJson(job) }}
           echo '${{ toJson(secrets) }}'
           echo '${{ toJson(steps) }}'
-          echo '${{ toJson(runner) }}' 
+          echo ${{ toJson(runner) }} 
           
 ## echo ${{ 'It''s open source!' }} 
 
