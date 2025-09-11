@@ -32,4 +32,4 @@ jobs:
             - run: |
                 echo $GITHUB_SHA
                 echo $GITHUB_REF
-            - uses: actions/checkout@V4
+            - uses: actions/checkout@v5

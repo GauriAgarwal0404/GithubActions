@@ -10,3 +10,10 @@ jobs:
         runs-on: ubuntu-latest
         steps: 
             - run: echo "I was triggered bacuse 'Repository Events' was completed"
+
+
+# on:
+#   workflow_run:
+#     workflows: [Build]
+#     types: [requested]
+#     branches: [canary]
