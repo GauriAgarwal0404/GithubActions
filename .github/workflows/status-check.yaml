@@ -4,10 +4,12 @@ on: [push]
 jobs:
     job-1:
         runs-on: ubuntu-latest
+        timeout-minutes: 1
         steps:
             - name: Step 1
               run: sleep 90
-              timeout-minutes: 1   #if step takes more than 1 mins it will be terminated
+              #timeout-minutes: 1   #if step takes more than 1 mins it will be terminated
+              # default value of timeout-minutes is 360 mins
             - name: Step 2
               id: step-2
               continue-on-error: true
