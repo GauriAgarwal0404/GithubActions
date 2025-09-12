@@ -25,6 +25,8 @@ jobs:
                 DELIMITER=1234
                 echo "RANDOM_JOKE<<$DELIMITER" >> "$GITHUB_ENV"
                 echo "This is a random joke." >> "$GITHUB_ENV"
+                curl -s https://icanhazdadjoke.com/ >> "$GITHUB_ENV"
+                echo "" >> "$GITHUB_ENV"
                 echo "$DELIMITER" >> "$GITHUB_ENV"
             - name: Step level env var
               env:
@@ -36,3 +38,4 @@ jobs:
                 echo $WF_LEVEL_ENV
                 echo $NEW_ENV_VAR
                 echo $JOB_LEVEL_ENV
+                echo $RANDOM_JOKE
