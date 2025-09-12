@@ -19,6 +19,7 @@ jobs:
                     github.rest.issues.createComment({
                       owner: context.repo.owner,
                       repo: context.repo.repo,
-                      issue_number: context.issue.number,     #PR number
+                      issue_number: context.issue.number,     
                       body: 'Thanks for contributing!',
                     });
+#PR number is same as issue number because in GitHub every PR is an issue but not every issue is a PR
