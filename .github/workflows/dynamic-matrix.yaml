@@ -20,7 +20,7 @@ jobs:
           id: matrix-arrays
           with:
             script: "return {os: context.payload.inputs['os'].split(','), 'node-version': context.payload.inputs['node-version'].split(',')}"
-            result-encoding: json
+            # result-encoding: json
         - run: echo '${{ steps.matrix-arrays.outputs.result }}'
         - run: echo "step-output=value" >> "$GITHUB_OUTPUT"
           id: step-1
