@@ -42,7 +42,6 @@ jobs:
               exclude: 
                 - os: ubuntu-latest
                   node-version: 14   
-                - os: ubuntu-latest
             #max-parallel: 3
             fail-fast: false
         runs-on: ${{ matrix.os }}
