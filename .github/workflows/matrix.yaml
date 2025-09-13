@@ -17,7 +17,7 @@ on: [push]
 # {os: windows-latest, node-version: 15, experimental: false}
 # {os: windows-latest, node-version: 16, experimental: false}
 # {os: macos-latest, node-version: 15}      #new combination
-# {os: ubuntu-latest, node-version: 16}      #new combination
+# {os: ubuntu-latest, node-version: 17}      #new combination
 
 
 
@@ -40,9 +40,8 @@ jobs:
                 - os: ubuntu-latest
                   node-version: 17
               exclude: 
-                # - os: ubuntu-latest
-                #   node-version: 14  
-                - os: ubuntu-latest 
+                - os: ubuntu-latest
+                  node-version: 14  
             #max-parallel: 3
             fail-fast: false
         runs-on: ${{ matrix.os }}
