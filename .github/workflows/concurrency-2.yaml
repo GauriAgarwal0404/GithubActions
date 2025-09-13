@@ -14,7 +14,7 @@ on:
 
 concurrency:
     # group: concurrency-1
-    group: ${{ inputs.environment }}      #both workflows are sharing the same concurrency group
+    group: ${{ github.workflow }}-${{ inputs.environment }}      #both workflows are sharing the same concurrency group
     cancel-in-progress: true
 
 jobs:
