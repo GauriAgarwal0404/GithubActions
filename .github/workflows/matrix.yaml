@@ -17,7 +17,7 @@ on: [push]
 # {os: windows-latest, node-version: 15, experimental: false}
 # {os: windows-latest, node-version: 16, experimental: false}
 # {os: macos-latest, node-version: 15}      #new combination
-# {os: ubuntu-latest, node-version: 17}      #new combination
+# {os: ubuntu-latest, node-version: 16}      #new combination
 
 
 
@@ -32,7 +32,7 @@ jobs:
                 - os: ubuntu-latest
                   is-ubuntu: true
                 - os: macos-latest      #original values can't be overwritten
-                  node-version: 15
+                  node-version: 16
                 - experimental: false   #this value can't be added on the new combination as it will be added only on the original combinations
                 - os: ubuntu-latest     #here added matrix value like experimental : true is overwritten but original ones will not be overwritten
                   node-version: 16
