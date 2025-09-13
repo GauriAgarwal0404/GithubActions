@@ -6,9 +6,14 @@ on:
                 description: "Environment"
                 type: environment
                 required: true
-concurrency: concurrency-1    #here concurrency-1 is the concurrency group name and if
-# same w/f is triggered multiple times using same concurrency group , it's going to be 
-#running once at a time and there are no more longer running same w/f or same job parallely
+#concurrency: concurrency-1    
+#here concurrency-1 is the concurrency group name and if same w/f is triggered 
+#multiple times using same concurrency group , it's going to be running once at 
+#a time and there are no more longer running same w/f or same job parallely
+
+concurrency:
+    group: concurrency-1
+    cancel-in-progress: true
 
 jobs:
     sleep:
