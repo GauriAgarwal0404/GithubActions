@@ -12,7 +12,8 @@ on:
 #a time and there are no more longer running same w/f or same job parallely
 
 concurrency:
-    group: concurrency-1
+    # group: concurrency-1
+    group: ${{ inputs.environment }}
     cancel-in-progress: true
 
 jobs:
