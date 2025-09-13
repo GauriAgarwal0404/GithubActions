@@ -23,7 +23,8 @@ on: [push]
 
 jobs: 
     node-matrix:
-        continue-on-error: ${{ matrix.experimental == true }}
+        # continue-on-error: ${{ matrix.experimental == true }}
+        continue-on-error: false
         strategy:
             matrix:
               os: [ubuntu-latest, windows-latest]
@@ -43,7 +44,7 @@ jobs:
                 - os: ubuntu-latest
                   node-version: 14  
             #max-parallel: 3
-            fail-fast: true
+            fail-fast: false
         runs-on: ${{ matrix.os }}
         steps:
             - if: matrix.experimental == true
