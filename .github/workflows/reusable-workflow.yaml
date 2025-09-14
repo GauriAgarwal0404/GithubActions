@@ -8,6 +8,12 @@ on:
 
 
 jobs:
+    nested-workflow-call:
+        uses: GauriAgarwal0404/Github_Actions_Notes/.github/workflows/reusable.yaml@main
+        with:
+            name: "Ali"
+        secrets:
+            access-token: ${{ secrets.ACCESS_TOKEN }}
     generate-output:
         runs-on: ubuntu-latest
         outputs:
