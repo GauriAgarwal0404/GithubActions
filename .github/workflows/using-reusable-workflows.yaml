@@ -10,6 +10,8 @@ on:
 
 jobs:
     calling-a-reusable-wf:
+        permissions: 
+            contents: read
         uses: GauriAgarwal0404/Github_Actions_Notes/.github/workflows/reusable.yaml@main
         with:
             name: ${{ inputs.name }}
