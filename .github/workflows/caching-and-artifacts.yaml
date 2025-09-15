@@ -6,18 +6,18 @@ jobs:
         runs-on: ubuntu-latest
         steps:
             - uses: actions/checkout@v3
-            # - name: Cache node modules
-            #   id: cache-dependencies
-            #   uses: actions/cache@v3
-            #   with:
-            #     path: ~/.npm
-            #     key: "npm-cache"
+            - name: Cache node modules
+              id: cache-dependencies
+              uses: actions/cache@v3
+              with:
+                path: ~/.npm
+                key: "npm-cache"
                 # key: ${{ runner.os }}-npm-cache-${{ hashFiles('**/package-lock.json') }}  #linux-npm-cache7383493
                 # restore-keys: |
                 #   ${{ runner.os }}-npm-cache
                 #   ${{ runner.os }}
-            # - name: Display cache Output
-            #   run: echo '${{ toJson(steps.cache-dependencies.outputs) }}'
+            - name: Display cache Output
+              run: echo '${{ toJson(steps.cache-dependencies.outputs) }}'
             - name: Install dependencies
               run: npm install
             # - name: Run tests
