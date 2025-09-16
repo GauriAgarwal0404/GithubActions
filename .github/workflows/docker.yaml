@@ -1,0 +1,28 @@
+name: Docker
+on: [workflow_dispatch]
+
+jobs:
+    docker-job:
+        runs-on: ubuntu-latest
+        container: 
+            image: node:24-alpine3.21     #if using any registry other than docker hub , then use this format ghcr.io/owner/image
+            # credentials:
+            #     username:
+            #     password:
+            env:
+                API_URL: some-url.com
+            ports:
+                - 80
+            # volumes:
+            #     - vol_name: /path/in/container
+            #     - /path/to/container
+            #     - /path/in/host:/path/in/container
+            # options: --cpus 1
+        steps:
+            - name: Log node and OS versions
+              run: |
+                 node -v
+                 cat /etc/os-release
+            - name: Log Env
+              run: echo $API_URL
+
