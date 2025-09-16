@@ -25,4 +25,13 @@ jobs:
                  cat /etc/os-release
             - name: Log Env
               run: echo $API_URL
+            - name: Container in a step
+              uses: docker://node:22.19-alpine3.21
+              with:
+                entrypoint: /usr/local/bin/node 
+                args: -p 2+3
+            - name: Log Node Version
+              uses: docker://node:22.19-alpine3.21
+              with:
+                args: -v
 
