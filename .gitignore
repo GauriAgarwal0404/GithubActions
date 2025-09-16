@@ -151,6 +151,7 @@ _ReSharper*/
 _TeamCity*
 
 # DotCover is a Code Coverage Tool
+coverage
 *.dotCover
 
 # AxoCover is a Code Coverage Tool

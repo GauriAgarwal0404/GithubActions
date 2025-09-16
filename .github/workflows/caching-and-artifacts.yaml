@@ -20,23 +20,16 @@ jobs:
               run: echo '${{ toJson(steps.cache-dependencies.outputs) }}'
             - name: Install dependencies
               run: npm install
-            # - name: Run tests
-            #   run: npm test
-            # - name: Upload Code Coverage report
-            #   uses: actions/upload-artifact@v3
-            #   if: always()
-            #   with:
-            #     name: code-coverage
-            #     path: coverage
-            #     retention-days: 10
-            # - name: Download Code Coverage
-            #   uses: actions/download-artifact@v3
-            #   with:
-            #     name: code-coverage
-            #     path: code-coverage-report
-            # - run: ls -a
-            # - run: ls -a
-            #   working-directory: code-coverage-report
+            - name: Run Tests
+              run: npm test
+            - name: Upload Code Coverage Report         # Name of the artifact to upload.
+              uses: actions/upload-artifact@v3          # A file, directory or wildcard pattern that describes what to upload
+              if: always()         
+              #we need to always run this test even if test has failed, so we can add always, even if test fail we still upload our generated coverage reports
+              with: 
+                name: code-coverage
+                path: coverage
+                retention-days: 10
             - name: Use Axios
               uses: actions/github-script@v6
               with:
