@@ -47,5 +47,12 @@ jobs:
               with:
                 entrypoint: ./script.sh
                 args: "some string"
+            # - name: sending a Slack notification via a Slack Incoming Webhook
+            #   uses: docker://technosophos/slack-notify
+            #   env:
+            #     SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
+            #     SLACK_TITLE: "From Github Actions"
+            #     SLACK_MESSAGE: "Actor: ${{github.actor}}, Event: ${{ github.event_name }}"
+            #     SLACK_COLOR: "#723fc4"
 
 

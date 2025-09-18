@@ -14,6 +14,8 @@ jobs:
             echo ${{ github.event.issue.labels.*.name }}    #When you just interpolate an array in ${{ github }}, Actions converts it to a string using its internal serialization.In Bash, when you echo that, it becomes "Array" — because Bash doesn’t understand the raw JSON-like array and just prints its type.
             echo ${{ join(github.event.issue.labels.*.name, ', ')}}
           # ${{ join([1,2,3], ', ')}}   => "1, 2, 3"
+
+          
   using-expressions-and-contexts:
     runs-on: ubuntu-latest
     if: github.event_name == 'push'
