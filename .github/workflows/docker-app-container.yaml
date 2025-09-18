@@ -1,4 +1,4 @@
-name: Test Api
+name: Test Api Container
 on: [push,workflow_dispatch]
 
 jobs:
