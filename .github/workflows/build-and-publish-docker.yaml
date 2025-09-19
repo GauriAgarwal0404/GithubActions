@@ -17,7 +17,7 @@ jobs:
               id: metadata
               uses: docker/metadata-action@v5
               with: 
-                images: gauri01234/docker-images-ga:node-js-api-app
+                images: gauri01234/docker-images-ga
                 tags: |
                   type=semver,pattern={{version}}
                   type=semver,pattern={{major}}.{{minor}}
