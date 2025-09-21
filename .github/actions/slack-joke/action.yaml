@@ -27,12 +27,12 @@ runs:
     - name: Generate Joke File
       shell: bash
       run: echo '${{ steps.joke.outputs.random_joke }}' > joke.txt
-      if: inputs.upload_joke              #if it is set to true
-    - name: Upload the joke
+      if: inputs.upload_joke
+    - name: Upload the Joke
       if: inputs.upload_joke
       uses: actions/upload-artifact@v4
-      with: 
-        name: Joke
+      with:
+        name: joke
         path: joke.txt
     # - name: Send a slack message
     #   uses: docker://technosophos/slack-notify
