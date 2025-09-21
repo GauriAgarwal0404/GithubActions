@@ -7,7 +7,7 @@ try{
     core.error("Error Message");
     // core.setSecret
 
-    const name = core.getInput('who_to_greet');
+    const name = core.getInput("who_to_greet");
     console.log('Hello ${name}');
 
     const time = new Date();
