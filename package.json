@@ -19,6 +19,8 @@
   },
   "homepage": "https://github.com/GauriAgarwal0404/GithubActions#readme",
   "dependencies": {
+    "@actions/core": "^1.11.1",
+    "@actions/github": "^6.0.1",
     "axios": "^1.12.2",
     "lodash": "^4.17.21",
     "moment": "^2.30.1"
